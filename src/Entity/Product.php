@@ -41,7 +41,7 @@ class Product
     private $subtitle;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text")
      */
     private $description;
 
@@ -71,7 +71,7 @@ class Product
     private $loyer;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="boolean",options={"default"="1"},nullable=false)
      */
     private $dispo;
 
@@ -206,12 +206,12 @@ class Product
         return $this;
     }
 
-    public function getDispo(): ?string
+    public function getDispo(): bool
     {
         return $this->dispo;
     }
 
-    public function setDispo(string $dispo): self
+    public function setDispo(bool $dispo): self
     {
         $this->dispo = $dispo;
 

@@ -5,8 +5,8 @@
 
 {% block content %}
     <div class="row">
-        <div class="col-md-5"><img src="/uploads/{{product.illustration}}" alt="{{product.name}}" class='img-fluid'></div>
-            <div class="col-md-7 my-auto">
+        <div class="col-md-7"><img src="/uploads/{{product.illustration}}" alt="{{product.name}}" class='img-fluid'></div>
+            <div class="col-md-5 my-auto">
             <h3>{{product.name}}</h3>
             <p>{{product.subtitle}}</p>
             <span class='product-page-price'>{{product.prix /100 }}€</span>
@@ -14,7 +14,7 @@
             <p>
             {{product.description}}
             </p>
-            <a href=""class='btn btn-primaty'>Ajouter au panier</a>
+            <a href=""class='btn btn-primary'>Ajouter au panier</a>
             <hr>
         </div>
     </div>

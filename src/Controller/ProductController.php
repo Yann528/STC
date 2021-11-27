@@ -38,8 +38,9 @@ class ProductController extends AbstractController
            $products = $this->entityManager->getRepository(Product::class)->findAll();
 
         }
-
-        $products = $this->entityManager->getRepository(Product::class)->findWithSearch($search);
+        /** @var ProductRepository */
+        $productRepo = $this->entityManager->getRepository(Product::class);
+        $products = $productRepo->findWithSearch($search);
 
         return $this->render('product/index.html.twig',[
             'products'=>$products,
