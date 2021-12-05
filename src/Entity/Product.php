@@ -40,6 +40,21 @@ class Product
      */
     private $subtitle;
 
+     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $typeOffre;
+
+     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $etat;
+
+     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $dispoDate;
+
     /**
      * @ORM\Column(type="text")
      */
@@ -49,6 +64,21 @@ class Product
      * @ORM\Column(type="float")
      */
     private $prix;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $montantTaxeFonciere;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $montantCharges;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $montantTaxeBureaux;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -110,6 +140,44 @@ class Product
         return $this;
     }
 
+    public function gettypeOffre(): ?string
+    {
+        return $this->typeOffre;
+    }
+
+    public function settypeOffre(string $typeOffre): self
+    {
+        $this->typeOffre = $typeOffre;
+
+        return $this;
+    }
+
+    public function getetat(): ?string
+    {
+        return $this->etat;
+    }
+
+    public function setetat(string $etat): self
+    {
+        $this->etat = $etat;
+
+        return $this;
+    }
+
+
+    public function getdispoDate(): ?string
+    {
+        return $this->dispoDate;
+    }
+
+    public function setdispoDate(string $dispoDate): self
+    {
+        $this->dispoDate = $dispoDate;
+
+        return $this;
+    }
+
+
     public function getIllustration(): ?string
     {
         return $this->illustration;
@@ -157,6 +225,46 @@ class Product
 
         return $this;
     }
+
+    public function getmontantTaxeFonciere(): ?float
+    {
+        return $this->montantTaxeFonciere;
+    }
+
+    public function setmontantTaxeFonciere(float $montantTaxeFonciere): self
+    {
+        $this->montantTaxeFonciere = $montantTaxeFonciere;
+
+        return $this;
+    }
+
+
+    public function getmontantCharges(): ?float
+    {
+        return $this->montantCharges;
+    }
+
+    public function setmontantCharges(float $montantCharges): self
+    {
+        $this->montantCharges = $montantCharges;
+
+        return $this;
+    }
+
+
+    public function getmontantTaxeBureaux(): ?float
+    {
+        return $this->montantTaxeBureaux;
+    }
+
+    public function setmontantTaxeBureaux(float $montantTaxeBureaux): self
+    {
+        $this->montantTaxeBureaux = $montantTaxeBureaux;
+
+        return $this;
+    }
+
+
 
     public function getLocalisation(): ?string
     {

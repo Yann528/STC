@@ -12,6 +12,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
+
 
 class ProductCrudController extends AbstractCrudController
 {
@@ -23,7 +25,7 @@ class ProductCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('name'),
+            TextField::new('name')->setLabel('Nom'),
             SlugField::new('slug')->setTargetFieldName('name'),
             ImageField::new('illustration')
             ->setBasePath('uploads/')
@@ -32,8 +34,14 @@ class ProductCrudController extends AbstractCrudController
             ->setRequired(false),
             //ImageField::new('illustration')->setBasePath('uploads/')->setFormTypeOptions(['mapped'=>false,'required'=>false]),
             TextField::new('subtitle'),
+            ChoiceField::new('typeOffre')->setChoices(fn () => ['Location' => 'Location', 'Vente' => 'Vente']),
+            TextField::new('etat'),
+            TextField::new('dispoDate'),
             TextareaField::new('description'),
             MoneyField::new('prix')->setCurrency('EUR'),
+            MoneyField::new('montantTaxeFonciere')->setCurrency('EUR'),
+            MoneyField::new('montantCharges')->setCurrency('EUR'),
+            MoneyField::new('montantTaxeBureaux')->setCurrency('EUR'),
             TextField::new('localisation'),
             NumberField::new('codePostal'),
             NumberField::new('surface'),

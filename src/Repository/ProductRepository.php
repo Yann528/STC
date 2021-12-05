@@ -31,16 +31,36 @@ class ProductRepository extends ServiceEntityRepository
         ->join('p.category', 'c');
 
         if (!empty($search->categories)){
-            $query = $query
+            $query 
             ->andWhere('c.id IN (:categories)')
             ->setParameter('categories',$search->categories);
         }
 
+        if (!empty($search->typeOffre)){
+
+            $query->andWhere('p.typeOffre = :typeOffre')
+            ->setParameter('typeOffre',$search->typeOffre);
+        }
+
         if (!empty($search->string)){
-            $query = $query
+            $query 
             ->andWhere('p.name LIKE :string')
             ->setParameter('string', "%{$search->string}%");
         }
+
+        if (!empty($search->prixMin)){
+            $query 
+            ->andWhere('p.prix >= :prixMin')
+            ->setParameter('prixMin',$search->prixMin);
+        }
+
+        if (!empty($search->prixMax)){
+            $query 
+            ->andWhere('p.prix <= :prixMax')
+            ->setParameter('prixMax',$search->prixMax);
+        }
+
+        //dd($query->getQuery()->getSQL());
 
         return $query->getQuery()->getResult();
 

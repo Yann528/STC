@@ -1,13 +1,13 @@
 <?php
 
 namespace App\Controller;
+use App\Classe\Mail;
 use App\Entity\User;
 use App\Form\RegisterType;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class RegisterController extends AbstractController
@@ -23,6 +23,8 @@ class RegisterController extends AbstractController
      */
     public function index(Request $request, UserPasswordEncoderInterface $encoder)
     {
+        $notification = null;
+
         $user =  new User();
         $form = $this->createForm(RegisterType::class,$user);
 
@@ -31,19 +33,45 @@ class RegisterController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()){
 
             $user = $form->getData();
-            $password = $encoder->encodePassword($user,$user->getPassword());
 
-            $user->setPassword($password);
+            $search_email = $this->entityManager->getRepository(User::class)->findOneByEmail($user->getEmail());
+            
+            if(!$search_email){
 
-            $this->entityManager->persist($user);
-            $this->entityManager->flush();
+                $password = $encoder->encodePassword($user,$user->getPassword());
 
+                $user->setPassword($password);
+    
+                $this->entityManager->persist($user);
+                $this->entityManager->flush();
+
+                $mail = new Mail();
+                $content = "Bonjour".$user->getFirstname()."
+                <br/>
+                Merci de bien vouloir patienter que STC valide votre inscription<br><br/>
+                Constituendi autem sunt qui sint in amicitia fines et quasi termini diligendi.
+                De quibus tres video sententias ferri, quarum nullam probo, unam, 
+                ut eodem modo erga amicum adfecti simus, quo erga nosmet ipsos, alteram,
+                ut nostra in amicos benevolentia illorum erga nos benevolentiae pariter
+                aequaliterque respondeat, tertiam, ut, quanti quisque se ipse facit, tanti fiat ab amicis.";
+                $mail->send($user->getEmail(),$user->getFirstname(),'Bienvenue sur STC', $content );
+
+                $notification = "Votre inscription s'est correctement déroulée. 
+                Vous pouvez dés a present vous connecter à votre compte.";
+
+            }else{
+
+                $notification = "L'email que vous avez renseigné existe déjà.";
+
+
+            }
 
 
         }
 
         return $this->render('register/index.html.twig',[
-            'form'=> $form->createView()
+            'form'=> $form->createView(),
+            'notification'=>$notification
         ]);
     }
 }

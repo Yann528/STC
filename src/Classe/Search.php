@@ -12,6 +12,21 @@ class Search
 */
  public $string = '';
 
+ /**
+* @var string
+*/
+public $typeOffre = '';
+
+/**
+ * @var int|null
+ */
+public $prixMin = null;
+
+/**
+ * @var int|null
+ */
+public $prixMax = null;
+
 
 /**
 * @var category[]
