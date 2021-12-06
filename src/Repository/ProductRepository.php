@@ -60,6 +60,18 @@ class ProductRepository extends ServiceEntityRepository
             ->setParameter('prixMax',$search->prixMax);
         }
 
+        if (!empty($search->surfaceMin)){
+            $query 
+            ->andWhere('p.surface >= :surfaceMin')
+            ->setParameter('surfaceMin',$search->surfaceMin);
+        }
+
+        if (!empty($search->surfaceMax)){
+            $query 
+            ->andWhere('p.surface <= :surfaceMax')
+            ->setParameter('surfaceMax',$search->surfaceMax);
+        }
+
         //dd($query->getQuery()->getSQL());
 
         return $query->getQuery()->getResult();

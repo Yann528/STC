@@ -27,6 +27,16 @@ public $prixMin = null;
  */
 public $prixMax = null;
 
+/**
+ * @var int|null
+ */
+public $surfaceMin = null;
+
+/**
+ * @var int|null
+ */
+public $surfaceMax = null;
+
 
 /**
 * @var category[]

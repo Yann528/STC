@@ -68,6 +68,27 @@ class SearchType extends AbstractType
 
         ])
 
+        ->add('surfaceMin',NumberType::class,[
+            'label'=> false,
+            'required'=> false,
+            'attr'=>[
+                'placeholder'=>'Surface min -',
+                'class' => 'form-control',
+                
+            ]
+        ])
+
+        ->add('surfaceMax',NumberType::class,[
+                'label'=> false,
+                'required'=> false,
+                'attr'=>[
+                    'placeholder'=>'Surface max +',
+                    'class' => 'form-control',
+                    
+                ]
+
+        ])
+
         ->add('submit', SubmitType::class,[
             'label'=>'Filtrer',
             'attr'=>[
