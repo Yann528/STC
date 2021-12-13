@@ -1,18 +1,97 @@
-html {
+html, body ,main {
     position: relative;
-    min-height: 100%;
+    margin:0px ;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
   }
 
-body {
-    position: relative;
-    margin-bottom: 60px;
+  body {
+background-color: #F5F6F7;
+  }
+
+
+
+
+
+/* ------------------------------------------------- Home */
+.votre-projet {
+
+    background-color: white;
+    width: 100%;
 }
+
+
+.bgimage {
+    /* background: url("../uploads/fd33ecdd2dfe9410aee7b0877617a569e5724c9b.jpg") no-repeat center center;*/
+    background-size: cover;
+
+}
+
+/* ------------------------------------------------- /END Home */
+
+/* ------------------------------------------------- Nav */
+
 
 .navebar-item-custom, .navebar-item-custom a {
 
     color: white;
 }
+/* ------------------------------------------------- /END Nav */
 
+/* ------------------------------------------------- Produits SL */
+
+.product-item h6 {
+
+    text-transform: uppercase;
+    font-size: 17px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    
+}
+
+.product-item {
+margin-top: 10px;
+
+}
+
+.product-item .product-dispoDate {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 2px;
+    color: tomato;
+}
+
+.product-item .product-prix{
+
+    font-size: 14px;
+    font-weight: bold;
+   
+}
+
+/*------------------------------------------ /END produits SL */
+
+
+/* ------------------------------------------------- Produits FP */
+
+.product-page-item .product-page-dispoDate {
+    font-size: 14px;
+    display: inline;
+    color: tomato;
+}
+
+/*------------------------------------------ /END produits FP */
+
+.product-container {
+    margin-bottom: 150px;
+}
+
+.product-page-price {
+font-size: 15px;
+
+}
+
+/* ------------------------------------------------- Footer */
 .footer-custom {
     display: none;
     text-align: center;
@@ -22,40 +101,4 @@ body {
     height: 100px;
     background-color: #dfeaff;
     padding-top: 25px;
-}
-
-.product-item h5 {
-
-    text-transform: uppercase;
-    font-size: 15px;
-    margin-bottom: 1px;
-    
-}
-
-.product-item {
-margin-top: 20px;
-
-}
-
-.product-item .product-subtitle {
-    font-size: 14px;
-    display: block;
-    margin-bottom: 10px;
-    color: tomato;
-}
-
-.product-item .product-prix{
-
-    font-size: 20px;
-    font-weight: bold;
-   
-}
-
-.product-container {
-    margin-bottom: 150px;
-}
-
-.product-page-price {
-font-size: 15px;
-
 }

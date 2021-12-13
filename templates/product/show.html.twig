@@ -7,15 +7,22 @@
     <div class="row">
         <div class="col-md-7"><img src="/uploads/{{product.illustration}}" alt="{{product.name}}" class='img-fluid'></div>
             <div class="col-md-5 my-auto">
-            <h3>{{product.name}}</h3>
-            <p>{{product.subtitle}}</p>
-            <span class='product-page-price'>{{product.prix /100 }}€</span>
-            <hr>
-            <p>
-            {{product.description}}
-            </p>
-            <a href=""class='btn btn-primary'>Ajouter au panier</a>
-            <hr>
+            <div class="product-page-item">
+                <h3>{{product.name}}</h3> 
+                <h5>{{product.codePostal}} {{product.localisation}}</h5>
+                <p>{{product.subtitle}}</p>
+                <span class='product-page-price'>Prix : {{product.prix /100 }}€</span>
+                <span class="product-page-prix"> | loyer : {{product.loyer /100 }}€</span></br>
+                <span class="product-page-surface">Surface : {{product.surface}}m2  | </span>
+                <span class="product-page-dispoDate">Dispo : {{product.dispoDate }}</span>
+                <hr>
+                <p>
+                {{product.description}}
+                </p>
+                <hr>
+                <a href=""class='btn btn-primary'>Ajouter au panier</a>
+                <hr>
+            </div>
         </div>
     </div>
 {% endblock %}
