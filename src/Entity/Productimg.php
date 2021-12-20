@@ -2,8 +2,11 @@
 
 namespace App\Entity;
 
+use App\Entity\Product;
 use App\Repository\ProductimgRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\JoinColumn;
+use Doctrine\ORM\Mapping\ManyToOne;
 
 /**
  * @ORM\Entity(repositoryClass=ProductimgRepository::class)
@@ -11,46 +14,54 @@ use Doctrine\ORM\Mapping as ORM;
 class Productimg
 {
     /**
+     * @var int
+     * 
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=false)
      */
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string|null
+     * 
+     *  @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $url;
+    private $alt;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     * 
+     *  @ORM\Column(type="string", length=255, nullable=false)
      */
     private $photos;
 
-        /**
-     * @ORM\ManyToOne(targetEntity=Product::class, inversedBy="products")
+    /**
+     * @var Product
+     * 
+     * @ORM\ManyToOne(targetEntity=Product::class, inversedBy="productimgs")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $Product;
+    private $product;
 
-    public function getId(): ?int
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function getUrl(): ?string
+    public function getAlt(): ?string
     {
-        return $this->url;
+        return $this->alt;
     }
 
-    public function setUrl(string $url): self
+    public function setAlt(?string $alt): self
     {
-        $this->url = $url;
+        $this->alt = $alt;
 
         return $this;
     }
 
-    public function getPhotos(): ?string
+    public function getPhotos(): string
     {
         return $this->photos;
     }
@@ -64,12 +75,12 @@ class Productimg
 
     public function getProduct(): ?Product
     {
-        return $this->Product;
+        return $this->product;
     }
 
-    public function setProduct(?Product $Product): self
+    public function setProduct(Product $product): self
     {
-        $this->Product = $Product;
+        $this->product = $product;
 
         return $this;
     }
