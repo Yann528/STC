@@ -22,6 +22,8 @@ class Product
     }
 
     /**
+     * @var int
+     * 
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
@@ -29,91 +31,125 @@ class Product
     private $id;
 
     /**
+     * @var string
+     * 
      * @ORM\Column(type="string", length=255)
      */
     private $name;
 
     /**
+     * @var string
+     * 
      * @ORM\Column(type="string", length=255)
      */
     private $slug;
 
     /**
+     * @var string
+     * 
      * @ORM\Column(type="string", length=255)
      */
     private $illustration;
 
     /**
+     * @var string
+     * 
      * @ORM\Column(type="string", length=255)
      */
     private $subtitle;
 
      /**
+     * @var string
+     * 
      * @ORM\Column(type="string", length=255)
      */
     private $typeOffre;
 
      /**
+     * @var string 
      * @ORM\Column(type="string", length=255)
      */
     private $etat;
 
      /**
+     * @var string
+     *
      * @ORM\Column(type="string", length=255)
      */
     private $dispoDate;
 
     /**
+     * @var string
+     * 
      * @ORM\Column(type="text")
      */
     private $description;
 
     /**
+     * @var float
+     * 
      * @ORM\Column(type="float")
      */
     private $prix;
 
     /**
+     * @var float
      * @ORM\Column(type="float")
      */
     private $montantTaxeFonciere;
 
     /**
+     * @var float
+     * 
      * @ORM\Column(type="float")
      */
     private $montantCharges;
 
     /**
+     * @var float
+     * 
      * @ORM\Column(type="float")
      */
     private $montantTaxeBureaux;
 
     /**
+     * @var string
+     * 
      * @ORM\Column(type="string", length=255)
      */
     private $localisation;
 
     /**
+     * @var float
+     * 
      * @ORM\Column(type="float")
      */
     private $codePostal;
 
     /**
+     * @var float
+     * 
      * @ORM\Column(type="float")
      */
     private $surface;
 
     /**
+     * @var float
+     * 
      * @ORM\Column(type="float")
      */
     private $loyer;
 
     /**
+     * @var bool
+     * 
      * @ORM\Column(type="boolean",options={"default"="1"},nullable=false)
      */
     private $dispo;
 
     /**
+     * @var Category
+     * 
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="products")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -362,7 +398,7 @@ class Product
     /**
      * @return Productimg[]
      */
-    public function getProductimgs(): array|Collection
+    public function getProductimgs(): array
     {
         return $this->productimgs;
     }

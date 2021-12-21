@@ -3,12 +3,27 @@
 {% block title %}Mon compte - STC{% endblock %}
 
 {% block content %}
+{% if app.user.customerValidate == false %}
+<div class="alert alert-primary" role="alert">
+  Votre compte sera prochainement validée , vous recevrez un email de confirmation.
+</div>
+
+{% else %}
+<div class="alert alert-success" role="alert">
+  Félicitations votre compte est validée, vous pouvez dès à présent profiter des offres professionnelles.
+</div>
+
 <h1>Mon compte</h1>
 Bienvenue {{app.user.firstname}} dans votre compte.<br/>
  c'est dans cet espace que vous allez pouvoir gérer toutes vos informations personnelles.
 <hr>
-<a href="{{ path('account_password')}}">- modifier mon mot de passe</a><br/>
-- ajouter une adresse <br/>
-- Mes commandes <br/>
+<a href="{{ path('account_password')}}">- Modifier mon mot de passe</a><br/>
+
+
+
+{% endif %}
+
+
+
 <hr>
 {% endblock %}
