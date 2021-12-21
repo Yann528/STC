@@ -19,8 +19,8 @@ class UserCrudController extends AbstractCrudController
     {
         return [
             TextField::new('email'),
-            BooleanField::new('validation'),
-            TextField::new('roles'),
+            BooleanField::new('customerValidate'),
+            BooleanField::new('admin'),
             TextField::new('firstname')->setLabel('Prénom'),
             TextField::new('lastname')->setLabel('Nom'),
 

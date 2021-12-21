@@ -13,6 +13,8 @@ use Symfony\Component\Security\Core\User\UserInterface;
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     /**
+     * @var int 
+     * 
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
@@ -20,16 +22,29 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $id;
 
     /**
+     * @var string
+     * 
      * @ORM\Column(type="string", length=180, unique=true)
      */
     private $email;
 
     /**
-     * @ORM\Column(type="boolean",options={"default"="1"},nullable=false)
+     * @var bool
+     * 
+     * @ORM\Column(type="boolean",options={"default"="0"},nullable=false)
      */
-    private $validation;
+    private $customerValidate = false;
 
     /**
+     * @var bool
+     * 
+     * @ORM\Column(type="boolean",options={"default"="0"},nullable=false) 
+     */
+    private $admin = false;
+
+    /**
+     * @var array
+     * 
      * @ORM\Column(type="json")
      */
     private $roles = [];
@@ -41,11 +56,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $password;
 
     /**
+     * @var string
+     * 
      * @ORM\Column(type="string", length=255)
      */
     private $firstname;
 
     /**
+     * @var string
+     * 
      * @ORM\Column(type="string", length=255)
      */
     private $lastname;
@@ -85,14 +104,26 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return (string) $this->email;
     }
 
-    public function getValidation(): bool
+    public function isCustomerValidate(): bool
     {
-        return $this->validation;
+        return $this->customerValidate;
     }
 
-    public function setValidation(bool $validation): self
+    public function setCustomerValidate(bool $customerValidate): self
     {
-        $this->validation = $validation;
+        $this->customerValidate = $customerValidate;
+
+        return $this;
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->admin;
+    }
+
+    public function setAdmin(bool $admin): self
+    {
+        $this->admin = $admin;
 
         return $this;
     }
