@@ -5,7 +5,10 @@ namespace App\Entity;
 use App\Repository\ProductRepository;
 use Doctrine\ORM\Mapping\JoinColumn;
 use Doctrine\ORM\Mapping\ManyToOne;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use App\Entity\Category;
+use Collator;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -13,6 +16,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Product
 {
+    public function __construct()
+    {
+        $this->productimgs = new ArrayCollection();
+    }
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -110,6 +118,14 @@ class Product
      * @ORM\JoinColumn(nullable=false)
      */
     private $category;
+
+    /**
+     * @var Productimg[]
+     * 
+     *  @ORM\OneToMany(targetEntity=Productimg::class, mappedBy="product")
+     */
+    private $productimgs;
+
 
     public function getId(): ?int
     {
@@ -341,5 +357,13 @@ class Product
         $this->category = $category;
 
         return $this;
+    }
+
+    /**
+     * @return Productimg[]
+     */
+    public function getProductimgs(): array|Collection
+    {
+        return $this->productimgs;
     }
 }
