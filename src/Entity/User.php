@@ -25,6 +25,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $email;
 
     /**
+     * @ORM\Column(type="boolean",options={"default"="1"},nullable=false)
+     */
+    private $validation;
+
+    /**
      * @ORM\Column(type="json")
      */
     private $roles = [];
@@ -78,6 +83,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getUsername(): string
     {
         return (string) $this->email;
+    }
+
+    public function getValidation(): bool
+    {
+        return $this->validation;
+    }
+
+    public function setValidation(bool $validation): self
+    {
+        $this->validation = $validation;
+
+        return $this;
     }
 
     /**
