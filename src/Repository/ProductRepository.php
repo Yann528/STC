@@ -23,7 +23,7 @@ class ProductRepository extends ServiceEntityRepository
      * Requête  qui me permet de récuperer les produits en fonction de la recherche de l'utilisateur
      * @return Product[]
      */
-    public function findWithSearch(Search $search)
+    public function findWithSearch(Search $search, bool $customerValidate)
     {
         $query = $this
         -> createQueryBuilder('p')
@@ -70,6 +70,12 @@ class ProductRepository extends ServiceEntityRepository
             $query 
             ->andWhere('p.surface <= :surfaceMax')
             ->setParameter('surfaceMax',$search->surfaceMax);
+        }
+
+        if ($customerValidate == false){
+            $query
+            ->andWhere('p.offrepro = :offrepro')
+            ->setParameter('offrepro', false);
         }
 
         //dd($query->getQuery()->getSQL());
