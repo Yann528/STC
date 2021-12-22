@@ -31,6 +31,13 @@ class Product
     private $id;
 
     /**
+     * @var bool
+     * 
+     * @ORM\Column(type="boolean",options={"default"="0"},nullable=false)
+    */
+    private $offrepro;
+
+    /**
      * @var string
      * 
      * @ORM\Column(type="string", length=255)
@@ -50,6 +57,21 @@ class Product
      * @ORM\Column(type="string", length=255)
      */
     private $illustration;
+
+
+    /**
+     * @var string
+     * 
+     * @ORM\Column(type="string", length=255)
+     */
+    private $plans;
+
+    /**
+     * @var string
+     * 
+     * @ORM\Column(type="string", length=255)
+     */
+    private $dataroom;
 
     /**
      * @var string
@@ -156,7 +178,7 @@ class Product
     private $category;
 
     /**
-     * @var Productimg[]
+     * @var Productimg[]|Collection
      * 
      *  @ORM\OneToMany(targetEntity=Productimg::class, mappedBy="product")
      */
@@ -166,6 +188,19 @@ class Product
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    
+    public function getOffrepro(): bool
+    {
+        return $this->offrepro;
+    }
+
+    public function setOffrepro(bool $offrepro): self
+    {
+        $this->offrepro = $offrepro;
+
+        return $this;
     }
 
     public function getName(): ?string
@@ -243,6 +278,30 @@ class Product
     public function setIllustration(string $illustration): self
     {
         $this->illustration = $illustration;
+
+        return $this;
+    }
+
+    public function getPlans(): ?string
+    {
+        return $this->plans;
+    }
+
+    public function setPlans(string $plans): self
+    {
+        $this->plans = $plans;
+
+        return $this;
+    }
+
+    public function getDataroom(): ?string
+    {
+        return $this->dataroom;
+    }
+
+    public function setDataroom(string $dataroom): self
+    {
+        $this->dataroom = $dataroom;
 
         return $this;
     }
@@ -398,7 +457,7 @@ class Product
     /**
      * @return Productimg[]
      */
-    public function getProductimgs(): array
+    public function getProductimgs(): Collection
     {
         return $this->productimgs;
     }

@@ -48,7 +48,13 @@
                 {{product.description}}
                 </p>
                 <hr>
-                <a href=""class='btn btn-primary'>Ajouter au panier</a>
+                {% if product.plans != '' %}   
+                <a href="/uploadsPlans/{{product.plans}}" target="_blank" class='btn btn-secondary'>Plan</a>
+                {% endif %}
+                {% if product.dataroom != '' %} 
+                <a href="/uploadsDataroom/{{product.dataroom}}" target="_blank" class='btn btn-secondary'>Data room</a>
+                {% endif %}
+                <a href="{{ path('contact') }}"class='btn btn-primary'>Nous contacter</a>
                 <hr>
             </div>
         </div>

@@ -27,20 +27,43 @@ class ProductController extends AbstractController
      */
     public function index(Request $request): Response
     {
-        $products = $this->entityManager->getRepository(Product::class)->findAll();
+   
+        $user = $this->getUser();
         $search = new Search();
         $form = $this->createForm(SearchType::class,$search);
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted()&& $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()){
+             
+            /** @var ProductRepository */
+            $productRepo = $this->entityManager->getRepository(Product::class);
+            $customerValidate = false;
+            if ( empty($user) == false && $user->isCustomerValidate() == true){
+                $customerValidate = true;
+            }
+            $products = $productRepo->findWithSearch($search, $customerValidate);
+           
 
-           $products = $this->entityManager->getRepository(Product::class)->findAll();
+        } else { 
 
-        }
-        /** @var ProductRepository */
-        $productRepo = $this->entityManager->getRepository(Product::class);
-        $products = $productRepo->findWithSearch($search);
+
+            
+            if ( empty($user) == false && $user->isCustomerValidate() == true){
+
+                $products = $this->entityManager->getRepository(Product::class)->findAll();
+            } else {
+                $products = $this->entityManager->getRepository(Product::class)->findBy([
+                    'offrepro'=> false
+
+                ]);
+
+
+            }
+        } 
+
+
+       
 
         return $this->render('product/index.html.twig',[
             'products'=>$products,
