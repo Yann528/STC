@@ -124,6 +124,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setAdmin(bool $admin): self
     {
         $this->admin = $admin;
+        if ($this->admin) {
+            if (!in_array('ROLE_ADMIN', $this->roles)) {
+                $this->roles[] = 'ROLE_ADMIN';
+            }
+        } else {
+            if (in_array('ROLE_ADMIN', $this->roles)) {
+                unset($this->roles[array_search('ROLE_ADMIN', $this->roles)]);
+            }
+        }
 
         return $this;
     }
