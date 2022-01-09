@@ -3,9 +3,11 @@
 namespace App\Controller;
 
 use App\Classe\Mail;
-use App\Classe\MailContact;
 use App\Form\ContactType;
+use App\Classe\MailContact;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -17,7 +19,7 @@ class ContactController extends AbstractController
      */
 
 
-    public function index(Request $request): Response
+    public function index(Request $request, MailerInterface $mailer): Response
     {
         $mailContact = new MailContact();
 
@@ -34,8 +36,17 @@ class ContactController extends AbstractController
             $messagemail .= "Email: ". $mailContact->email."</br>";
             $messagemail .= "Text: ".nl2br($mailContact->content)."</br>";
 
-            $mail = new Mail();
-            $mail->send('yanncochard@hotmail.fr','STC','Nouvelle demande de contact',$messagemail);
+            $email = (new Email())
+            ->from('yanncochard@hotmail.fr')
+            ->to('yanncochard@hotmail.fr')
+            ->subject('Nouvelle demande de contact')
+            ->text('Vous avez une nouvelle demande de contact'.$messagemail)
+            ->html('<p>Vous avez une nouvelle demande de contact</p>'.$messagemail);
+
+        $mailer->send($email);
+
+           // $mail = new Mail();
+           // $mail->send('yanncochard@hotmail.fr','STC','Nouvelle demande de contact',$messagemail);
         }
 
         return $this->render('contact/index.html.twig',[

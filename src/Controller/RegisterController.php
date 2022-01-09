@@ -5,6 +5,8 @@ use App\Classe\Mail;
 use App\Entity\User;
 use App\Form\RegisterType;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -21,7 +23,7 @@ class RegisterController extends AbstractController
     /**
      * @Route("/inscription", name="register")
      */
-    public function index(Request $request, UserPasswordEncoderInterface $encoder)
+    public function index(Request $request, UserPasswordEncoderInterface $encoder, MailerInterface $mailer)
     {
         $notification = null;
 
@@ -45,7 +47,20 @@ class RegisterController extends AbstractController
                 $this->entityManager->persist($user);
                 $this->entityManager->flush();
 
-                $mail = new Mail();
+                $content = "Bonjour ".$user->getFirstname()." " .$user->getLastname()."
+                Merci de bien vouloir patienter que STC valide votre inscription";
+
+                $email = (new Email())
+                    ->from('yanncochard@hotmail.fr')
+                    ->to($user->getEmail())
+                    ->subject('Bienvenue sur STC')
+                    ->text($content)
+                    ->html(nl2br($content));
+
+                $mailer->send($email);
+
+
+                /*$mail = new Mail();
                 $content = "Bonjour".$user->getFirstname()."
                 <br/>
                 Merci de bien vouloir patienter que STC valide votre inscription<br><br/>
@@ -55,7 +70,7 @@ class RegisterController extends AbstractController
                 ut nostra in amicos benevolentia illorum erga nos benevolentiae pariter
                 aequaliterque respondeat, tertiam, ut, quanti quisque se ipse facit, tanti fiat ab amicis.";
                 $mail->send($user->getEmail(),$user->getFirstname(),'Bienvenue sur STC', $content );
-
+                */
                 $notification = "Votre inscription s'est correctement déroulée. 
                 Vous pouvez dés a present vous connecter à votre compte.";
 
