@@ -33,23 +33,30 @@
 <body>
 <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="{{path('home') }}">STC</a>
+    
+        <a class="navbar-brand" href="{{path('home') }}">S T C</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{path('products')}}">| Nos offres |</a>
+                    <a class="nav-link" href="{{path('products')}}">| Nos offres  |</a>
                 </li>
                 
                  <li class="nav-item active">
-                    <a class="nav-link" href="#">Qui sommes-nous? |</a>
+                    <a class="nav-link" href="{{path('qui_sommes_nous') }}">Qui sommes-nous |</a>
+                </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" href="{{path('references') }}">Nos références |</a>
+                </li>
                 </li>
                   <li class="nav-item active">
                     <a class="nav-link" href="{{path('contact') }}">Nous contacter |</a>
                 </li>
             </ul>
+            
+
             <div class='navebar-item-custom' >
                 {% if app.user %}
                 <a href="{{ path('account') }}">Mon compte <small>({{app.user.firstname}}) </small> </a> | <a href="{{ path('app_logout') }}">Déconnexion</a>
@@ -97,7 +104,7 @@
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
-    <div class="container marketing {% if block('carousel') is not defined %}mt-5{% endif %} ">
+    <div class="marketing {% if block('carousel') is not defined %}mt-5{% endif %} ">
 
       {% block content %}
           
@@ -108,14 +115,34 @@
    </main>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="{{ asset('assets/js/bootstrap.bundle.js') }}"></script>
+
 <!-- FOOTER -->
-<footer class="footer-custom">
-        <p>
-        &copy; STC <br/>
-        <small>mettre un blabla <br/>
-        <a href="#">Privacy</a> &middot; <a href="#">Terms</a></small>
-        </p>
+    <footer class="footer-custom">
+        <div class="bas_page">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src="{{ asset('assets/img/logo_stc_200x200.png')}}" class="home-logo" alt="logo STC">
+                    </div>
+                    <div class="col-md-4">
+                        <h5 class="title-footer">Suivez-nous !</h5>
+                        <a href="https://www.instagram.com/la_cuisine_de_yann/?hl=fr" target="_blank"><img src="{{ asset('assets/img/insta_blanc.png')}}" class="logo-insta" alt="logo-insta" width="40" height="40"></a>
+                        <a href="https://www.facebook.com/" target="_blank"><img src="{{ asset('assets/img/Facebook_blanc.png')}}" class="logo-Facebook" alt="logo-Facebook" width="40" height="40"></a>
+                    </div>
+                    <div class="col-md-6">
+                        <ul>
+                            <li><a class="nav-footer" href="{{path('products')}}">Nos offres</a></li>
+                            <li><a class="nav-footer" href="{{path('qui_sommes_nous')}}">Qui somme-nous</a></li>
+                            <li><a class="nav-footer" href="{{path('references')}}">Nos références</a></li>
+                            <li><a class="nav-footer" href="{{path('contact')}}">Nous contacter</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </footer>
+
 </body>
  
 </html>
