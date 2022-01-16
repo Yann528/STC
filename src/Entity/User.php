@@ -13,6 +13,8 @@ use Symfony\Component\Security\Core\User\UserInterface;
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     /**
+     * @var int 
+     * 
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
@@ -20,11 +22,29 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $id;
 
     /**
+     * @var string
+     * 
      * @ORM\Column(type="string", length=180, unique=true)
      */
     private $email;
 
     /**
+     * @var bool
+     * 
+     * @ORM\Column(type="boolean",options={"default"="0"},nullable=false)
+     */
+    private $customerValidate = false;
+
+    /**
+     * @var bool
+     * 
+     * @ORM\Column(type="boolean",options={"default"="0"},nullable=false) 
+     */
+    private $admin = false;
+
+    /**
+     * @var array
+     * 
      * @ORM\Column(type="json")
      */
     private $roles = [];
@@ -36,11 +56,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $password;
 
     /**
+     * @var string
+     * 
      * @ORM\Column(type="string", length=255)
      */
     private $firstname;
 
     /**
+     * @var string
+     * 
      * @ORM\Column(type="string", length=255)
      */
     private $lastname;
@@ -78,6 +102,39 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getUsername(): string
     {
         return (string) $this->email;
+    }
+
+    public function isCustomerValidate(): bool
+    {
+        return $this->customerValidate;
+    }
+
+    public function setCustomerValidate(bool $customerValidate): self
+    {
+        $this->customerValidate = $customerValidate;
+
+        return $this;
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->admin;
+    }
+
+    public function setAdmin(bool $admin): self
+    {
+        $this->admin = $admin;
+        if ($this->admin) {
+            if (!in_array('ROLE_ADMIN', $this->roles)) {
+                $this->roles[] = 'ROLE_ADMIN';
+            }
+        } else {
+            if (in_array('ROLE_ADMIN', $this->roles)) {
+                unset($this->roles[array_search('ROLE_ADMIN', $this->roles)]);
+            }
+        }
+
+        return $this;
     }
 
     /**

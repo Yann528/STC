@@ -27,11 +27,27 @@ class ProductCrudController extends AbstractCrudController
         return [
             TextField::new('name')->setLabel('Nom'),
             SlugField::new('slug')->setTargetFieldName('name'),
+
+            BooleanField::new('offrepro'),
+
             ImageField::new('illustration')
             ->setBasePath('uploads/')
             ->setUploadDir('public/uploads')
             ->setUploadedFileNamePattern('[randomhash].[extension]')
             ->setRequired(false),
+
+            ImageField::new('plans')
+            ->setBasePath('uploadsPlans/')
+            ->setUploadDir('public/uploadsPlans')
+            ->setUploadedFileNamePattern('[randomhash].[extension]')
+            ->setRequired(false),
+
+            ImageField::new('dataroom')
+            ->setBasePath('uploadsDataroom/')
+            ->setUploadDir('public/uploadsDataroom')
+            ->setUploadedFileNamePattern('[randomhash].[extension]')
+            ->setRequired(false),
+
             //ImageField::new('illustration')->setBasePath('uploads/')->setFormTypeOptions(['mapped'=>false,'required'=>false]),
             TextField::new('subtitle'),
             ChoiceField::new('typeOffre')->setChoices(fn () => ['Location' => 'Location', 'Vente' => 'Vente']),
@@ -47,6 +63,7 @@ class ProductCrudController extends AbstractCrudController
             NumberField::new('surface'),
             MoneyField::new('loyer')->setCurrency('EUR'),
             BooleanField::new('dispo'),
+            
             //BooleanField::new('isBest'),
             AssociationField::new('category')
             //AssociationField::new('categoty')

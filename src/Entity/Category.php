@@ -13,6 +13,8 @@ use Doctrine\ORM\Mapping as ORM;
 class Category
 {
     /**
+     * @var int
+     * 
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
@@ -20,11 +22,15 @@ class Category
     private $id;
 
     /**
+     * @var string
+     * 
      * @ORM\Column(type="string", length=255)
      */
     private $name;
 
     /**
+     * @var Product[]|Collection
+     * 
      * @ORM\OneToMany(targetEntity=Product::class, mappedBy="category")
      */
     private $products;

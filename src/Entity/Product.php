@@ -5,7 +5,10 @@ namespace App\Entity;
 use App\Repository\ProductRepository;
 use Doctrine\ORM\Mapping\JoinColumn;
 use Doctrine\ORM\Mapping\ManyToOne;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use App\Entity\Category;
+use Collator;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -13,7 +16,14 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Product
 {
+    public function __construct()
+    {
+        $this->productimgs = new ArrayCollection();
+    }
+
     /**
+     * @var int
+     * 
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
@@ -21,104 +31,186 @@ class Product
     private $id;
 
     /**
+     * @var bool
+     * 
+     * @ORM\Column(type="boolean",options={"default"="0"},nullable=false)
+    */
+    private $offrepro;
+
+    /**
+     * @var string
+     * 
      * @ORM\Column(type="string", length=255)
      */
     private $name;
 
     /**
+     * @var string
+     * 
      * @ORM\Column(type="string", length=255)
      */
     private $slug;
 
     /**
+     * @var string
+     * 
      * @ORM\Column(type="string", length=255)
      */
     private $illustration;
 
+
     /**
+     * @var string
+     * 
+     * @ORM\Column(type="string", length=255)
+     */
+    private $plans;
+
+    /**
+     * @var string
+     * 
+     * @ORM\Column(type="string", length=255)
+     */
+    private $dataroom;
+
+    /**
+     * @var string
+     * 
      * @ORM\Column(type="string", length=255)
      */
     private $subtitle;
 
      /**
+     * @var string
+     * 
      * @ORM\Column(type="string", length=255)
      */
     private $typeOffre;
 
      /**
+     * @var string 
      * @ORM\Column(type="string", length=255)
      */
     private $etat;
 
      /**
+     * @var string
+     *
      * @ORM\Column(type="string", length=255)
      */
     private $dispoDate;
 
     /**
+     * @var string
+     * 
      * @ORM\Column(type="text")
      */
     private $description;
 
     /**
+     * @var float
+     * 
      * @ORM\Column(type="float")
      */
     private $prix;
 
     /**
+     * @var float
      * @ORM\Column(type="float")
      */
     private $montantTaxeFonciere;
 
     /**
+     * @var float
+     * 
      * @ORM\Column(type="float")
      */
     private $montantCharges;
 
     /**
+     * @var float
+     * 
      * @ORM\Column(type="float")
      */
     private $montantTaxeBureaux;
 
     /**
+     * @var string
+     * 
      * @ORM\Column(type="string", length=255)
      */
     private $localisation;
 
     /**
+     * @var float
+     * 
      * @ORM\Column(type="float")
      */
     private $codePostal;
 
     /**
+     * @var float
+     * 
      * @ORM\Column(type="float")
      */
     private $surface;
 
     /**
+     * @var float
+     * 
      * @ORM\Column(type="float")
      */
     private $loyer;
 
     /**
+     * @var bool
+     * 
      * @ORM\Column(type="boolean",options={"default"="1"},nullable=false)
      */
     private $dispo;
 
     /**
+     * @var Category
+     * 
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="products")
      * @ORM\JoinColumn(nullable=false)
      */
     private $category;
+
+    /**
+     * @var Productimg[]|Collection
+     * 
+     *  @ORM\OneToMany(targetEntity=Productimg::class, mappedBy="product")
+     */
+    private $productimgs;
+
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    
+    public function getOffrepro(): bool
+    {
+        return $this->offrepro;
+    }
+
+    public function setOffrepro(bool $offrepro): self
+    {
+        $this->offrepro = $offrepro;
+
+        return $this;
+    }
+
     public function getName(): ?string
     {
         return $this->name;
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
     }
 
     public function setName(string $name): self
@@ -186,6 +278,30 @@ class Product
     public function setIllustration(string $illustration): self
     {
         $this->illustration = $illustration;
+
+        return $this;
+    }
+
+    public function getPlans(): ?string
+    {
+        return $this->plans;
+    }
+
+    public function setPlans(string $plans): self
+    {
+        $this->plans = $plans;
+
+        return $this;
+    }
+
+    public function getDataroom(): ?string
+    {
+        return $this->dataroom;
+    }
+
+    public function setDataroom(string $dataroom): self
+    {
+        $this->dataroom = $dataroom;
 
         return $this;
     }
@@ -336,5 +452,13 @@ class Product
         $this->category = $category;
 
         return $this;
+    }
+
+    /**
+     * @return Productimg[]
+     */
+    public function getProductimgs(): Collection
+    {
+        return $this->productimgs;
     }
 }

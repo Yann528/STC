@@ -3,30 +3,40 @@
 
 {% block title %}Nos produits - STC{% endblock %}
 
+
 {% block content %}
+<div class="container">
     <div class="row">
         <div class="col-md-3">
-            <h3>Filtrer</h3>
+            <h2>Filtrer</h2>
             {{form(form)}}
         </div>
         <div class="col-md-9">
-            <h3>Nos produits</h3>
+            <h2>Nos produits</h2>
 
             <div class="row product-container">
                 {% for product in products %}
                     <div class="col-md-4">
-                        <div class="product-item text-center">
+                        <div class="product-item">
                             <a href="{{path('product', { 'slug' : product.slug })}}"><img src="/uploads/{{product.illustration}}" alt="{{product.name}}" class='img-fluid'></a>
+                            {% if product.offrepro == true %}
+                                <img src="{{ asset('assets/img/vip.png')}}" class="product-picto" alt="picto vip">
+                                <span class="product-privilege"> Offre privilège</span>
+                            {% endif %}
                             <h6>{{product.name}}</h6>
-                            <span class="product-subtitle">{{product.subtitle}}</span>
-                            <span class="product-prix">{{product.prix /100 }} €</span>
-                            <span class="product-surface">{{product.surface /100 }} m2</span>
+                            <span class="product-prix">Prix : {{product.prix /100 }}€</span>
+                            <span class="product-prix"> | loyer : {{product.loyer /100 }}€</span></br>
+                            <span class="product-surface">Surface : {{product.surface}}m2</span></br>
+                            <span class="product-dispoDate">Dispo : {{product.dispoDate }}</span></br>
+                            
+                            <hr>
                         </div>
                     </div>
                 {% endfor %}
             </div>
         </div>
     </div>
-    
+</div>
 
 {% endblock %}
+
