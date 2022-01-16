@@ -3,6 +3,7 @@
 {% block title %}Mot de passe oublié STC{% endblock %}
 
 {% block content %}
+<div class="container">
     <div class="block-small">
     <h1 class="h3 mb-3 font-weight-normal">Réinitiliser mon mot de passe</h1>
     {% for message in app.flashes('notice') %}
@@ -16,5 +17,6 @@
     {% endfor %}
     {{form(form)}}
      
-    <div>
+    </div>
+</div>
 {% endblock %
