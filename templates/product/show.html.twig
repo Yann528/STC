@@ -7,6 +7,14 @@
 
 <div class="container">
     <div class="row">
+        <div class="col-md-12">
+            <h5>{{product.name}} | {{product.codePostal}} {{product.localisation}}</h5>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
         <div class="col-md-7">
             <div id="carouselProduct" class="carousel slide" data-ride="carousel" data-interval="false">
                 <ol class="carousel-indicators">
@@ -37,31 +45,73 @@
             </div>
         </div>
         <div class="col-md-5 my-auto">
+            
             <div class="product-page-item">
-                <h3>{{product.name}}</h3> 
-                <h5>{{product.codePostal}} {{product.localisation}}</h5>
-                <p>{{product.subtitle}}</p>
-                <span class='product-page-price'>Prix : {{product.prix /100 }}€</span>
-                <span class="product-page-prix"> | loyer : {{product.loyer /100 }}€</span></br>
+                {% if product.prix != 0 %} 
+                <span class='product-page-price'>Prix : {{product.prix /100 }}€</span></br>
+                {% endif %}
+                {% if product.loyer != 0 %} 
+                <span class="product-page-prix">loyer : {{product.loyer /100 }}€</span></br>
+                {% endif %}
+
                 <span class="product-page-surface">Surface : {{product.surface}}m2  | </span>
                 <span class="product-page-dispoDate">Dispo : {{product.dispoDate }}</span>
-                <hr>
-                <p>
-                {{product.description}}
-                </p>
-                <hr>
-                {% if product.plans != '' %}   
+                <p>{{product.subtitle}}</p>
+                {% if product.plans != '' %} 
+                <hr>  
                 <a href="/uploadsPlans/{{product.plans}}" target="_blank" class='btn btn-secondary'>Plan</a>
                 {% endif %}
                 {% if product.dataroom != '' %} 
                 <a href="/uploadsDataroom/{{product.dataroom}}" target="_blank" class='btn btn-secondary'>Data room</a>
-                {% endif %}
-                <a href="{{ path('contact') }}"class='btn btn-primary'>Nous contacter</a>
                 <hr>
+                {% endif %}
+                
+                
+
+            </div>
+             <div class="product-nous-contacter">
+                 <h3> Nous contacter </h3>
+                 <p>Ce bien vous interesse? </br> Nous vous recontactons dans les 24H</p>
+                 <a href="{{ path('contact') }}"class='btn btn-light'>Prendre un rendez-vous</a>
             </div>
         </div>
     </div>
 </div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="product-description">
+                <p>
+                <h5>Présentation du bien</h5>
+                {{product.description}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 product-information">
+            <div class="row">
+                <div class="col-md-6">
+                    <span class="product-page-montantTaxeFonciere">Taxe Fonciere : {{product.montantTaxeFonciere /100 }}€</span></br>
+                    <span class='product-page-price'>Prix : {{product.prix /100 }}€</span>
+                    <span class="product-page-prix"> | loyer : {{product.loyer /100 }}€</span></br>
+                    <span class="product-page-surface">Surface : {{product.surface}}m2  | </span>
+                    <span class="product-page-dispoDate">Dispo : {{product.dispoDate }}</span>
+                </div>
+
+                <div class="col-md-6">
+                    <span class="product-page-prix"> | loyer : {{product.loyer /100 }}€</span></br>
+                        <span class="product-page-surface">Surface : {{product.surface}}m2  | </span>
+                        <span class="product-page-dispoDate">Dispo : {{product.dispoDate }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <scrint>
 
 </scrint>
