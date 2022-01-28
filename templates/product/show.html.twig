@@ -71,7 +71,7 @@
             </div>
              <div class="product-nous-contacter">
                  <h3> Nous contacter </h3>
-                 <p>Ce bien vous interesse? </br> Nous vous recontactons dans les 24H</p>
+                 <p>Ce bien vous interesse ? </br> Nous vous recontactons dans les 24H.</p>
                  <a href="{{ path('contact') }}"class='btn btn-light'>Prendre un rendez-vous</a>
             </div>
         </div>
@@ -94,18 +94,37 @@
     <div class="row">
         <div class="col-md-12 product-information">
             <div class="row">
-                <div class="col-md-6">
-                    <span class="product-page-montantTaxeFonciere">Taxe Fonciere : {{product.montantTaxeFonciere /100 }}€</span></br>
-                    <span class='product-page-price'>Prix : {{product.prix /100 }}€</span>
-                    <span class="product-page-prix"> | loyer : {{product.loyer /100 }}€</span></br>
-                    <span class="product-page-surface">Surface : {{product.surface}}m2  | </span>
-                    <span class="product-page-dispoDate">Dispo : {{product.dispoDate }}</span>
+                <div class="col-md-4">
+                    {% if product.prix != 0 %}
+                    <span class='product-page-price'>- Prix: {{product.prix /100 }}€</span></br>
+                    {% endif %}
+                    {% if product.loyer != 0 %}
+                    <span class="product-page-prix">- loyer: {{product.loyer /100 }}€</span></br>
+                    {% endif %}
+                    <span class="product-page-dispoDate">- Type d'offre: {{product.typeOffre }}</span></br>
+                    <span class="product-page-surface">- Surface: {{product.surface}} m2</span></br>
+                    
                 </div>
 
-                <div class="col-md-6">
-                    <span class="product-page-prix"> | loyer : {{product.loyer /100 }}€</span></br>
-                        <span class="product-page-surface">Surface : {{product.surface}}m2  | </span>
-                        <span class="product-page-dispoDate">Dispo : {{product.dispoDate }}</span>
+                <div class="col-md-4">
+                    <span class="product-page-dispoDate">- Etat general: {{product.etat }}</span></br>
+                    <span class="product-page-dispoDate">- localisation: {{product.localisation }}</span></br>
+                    <span class="product-page-surface">- Code Postal: {{product.codePostal}}</span></br>
+                </div>
+
+                <div class="col-md-4">
+                    {% if product.montantTaxeFonciere != 0 %}
+                    <span class="product-page-montantTaxeFonciere">- Taxe Fonciere: {{product.montantTaxeFonciere /100 }}€</span></br>
+                    {% endif %}
+                     {% if product.montantCharges != 0 %}   
+                    <span class="product-page-prix">- Charges: {{product.montantCharges /100 }}€</span></br>
+                    {% endif %}
+                    {% if product.montantTaxeBureaux != 0 %}
+                    <span class="product-page-surface">- Taxe Bureaux: {{product.montantTaxeBureaux /100 }}€</span></br>
+                    {% endif %}
+                    {% if product.prix != 0 %}
+                    <span class="product-page-dispoDate">- Dispo : {{product.dispoDate }}</span></br>
+                    {% endif %}
                 </div>
             </div>
         </div>

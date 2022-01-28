@@ -50,27 +50,28 @@ class RegisterController extends AbstractController
                 $content = "Bonjour ".$user->getFirstname()." " .$user->getLastname()."
                 Merci de bien vouloir patienter que STC valide votre inscription";
 
-                $email = (new Email())
-                    ->from('yanncochard@hotmail.fr')
+                /*$email = (new Email())
+                    ->from('contact@stc-immobilier.fr')
                     ->to($user->getEmail())
                     ->subject('Bienvenue sur STC')
                     ->text($content)
                     ->html(nl2br($content));
 
-                $mailer->send($email);
+                $mailer->send($email);*/
 
 
-                /*$mail = new Mail();
+                $mail = new Mail();
                 $content = "Bonjour".$user->getFirstname()."
                 <br/>
-                Merci de bien vouloir patienter que STC valide votre inscription<br><br/>
+                Bienvenue sur STC Conseil en immobilier d'entreprise<br><br/>
+                merci de bien vouloir patienter que nous valider votre inscription<br><br/>
                 Constituendi autem sunt qui sint in amicitia fines et quasi termini diligendi.
                 De quibus tres video sententias ferri, quarum nullam probo, unam, 
                 ut eodem modo erga amicum adfecti simus, quo erga nosmet ipsos, alteram,
                 ut nostra in amicos benevolentia illorum erga nos benevolentiae pariter
                 aequaliterque respondeat, tertiam, ut, quanti quisque se ipse facit, tanti fiat ab amicis.";
                 $mail->send($user->getEmail(),$user->getFirstname(),'Bienvenue sur STC', $content );
-                */
+                
                 $notification = "Votre inscription s'est correctement déroulée. 
                 Vous pouvez dés a present vous connecter à votre compte.";
 

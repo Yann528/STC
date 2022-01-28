@@ -24,8 +24,12 @@
                                 <span class="product-privilege"> Offre privilège</span>
                             {% endif %}
                             <h6>{{product.name}}</h6>
-                            <span class="product-prix">Prix : {{product.prix /100 }}€</span>
-                            <span class="product-prix"> | loyer : {{product.loyer /100 }}€</span></br>
+                            {% if product.prix != 0 %} 
+                            <span class="product-prix">Prix : {{product.prix /100 }}€</span></br>
+                            {% endif %}
+                            {% if product.loyer != 0 %}
+                            <span class="product-prix"> loyer : {{product.loyer /100 }}€</span></br>
+                            {% endif %}
                             <span class="product-surface">Surface : {{product.surface}}m2</span></br>
                             <span class="product-dispoDate">Dispo : {{product.dispoDate }}</span></br>
                             

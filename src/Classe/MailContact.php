@@ -23,6 +23,16 @@ public $email = '';
 /**
 * @var string
 */
+public $telephone = '';
+
+/**
+* @var string
+*/
+public $societe = '';
+
+/**
+* @var string
+*/
 public $content = '';
 
 

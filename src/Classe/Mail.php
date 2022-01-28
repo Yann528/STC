@@ -20,7 +20,7 @@ class Mail
             'Messages' => [
                 [
                     'From' => [
-                        'Email' => "yanncochar@hotmail.fr",
+                        'Email' => "contact@stc-immobilier.fr",
                         'Name' => "STC"
                     ],
                     'To' => [
