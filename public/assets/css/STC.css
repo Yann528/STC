@@ -27,18 +27,18 @@ h1 {
 
     color: white;
 }
-/* ------------------------------------------------- /END Nav */
+/* ------------------------------ /END Nav */
 
 
 
 
-/* ------------------------------------------------- Home */
+/* ------------------------------------------------------ Home */
 
 
 
 .home-logo {
-width: 100px;
-height: 100px;
+width: 150px;
+height: 150px;
 
 }
 /*------------------ avis clients*/
@@ -49,6 +49,8 @@ background-image: url('/assets/img/fondconfiancer.jpg');
 height: 350px;
 margin-top: 80px;
 margin-bottom: 80px;
+position: relative;
+background-size: cover;
 }
 
 .nos-avis h1 {
@@ -70,21 +72,19 @@ text-decoration: none;
 
 }
 
-#background-img{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    position: relative;
-    background-size: cover;
-}
+
 #background-img h1 {
 text-align: center;
 color: white;
 
 }
 
+.messageReassurance{
+    margin-bottom: 80px;
+}
 
 /*------------------ /END avis clients*/
-/* ------------------------------------------------- /END Home */
+/* ----------------------- /END Home */
 
 
 /* ------------------------------------------------- Produits SL */
@@ -131,7 +131,7 @@ font-weight:500 ;
        
 }
 
-/*------------------------------------------ /END produits SL */
+/*---------- /END produits SL */
 
 
 /* ------------------------------------------------- Produits FP */
@@ -170,7 +170,7 @@ font-size: 15px;
 
 }
 
-/*------------------------------------------ /END produits FP */
+/*------------------- /END produits FP */
 
 /* ------------------------------------------------- Mon compte */
 
@@ -194,35 +194,71 @@ color:#007BFF;
 text-decoration: none;
 }
 
-/* ------------------------------------------------- /END Mon compte */
+/* --------------- /END Mon compte */
 
+/* ------------------------------------------------- Nos contacter */
+.featurette{
 
+    margin-bottom: 80px;
+}
+/* --------------/END Nos contacter */
+/* ------------------------------------------------- Nous contacter */
+.contact-logo{
+    
+    width: 150px;
+    height: 150px;
+
+}
+.contact-custom {
+
+    margin-bottom: 80px;
+}
+
+/* ------------------------------------------------- references */
+.references{
+    margin-bottom: 80px;
+}
+
+/* ------------- /END references */
 
 /* ------------------------------------------------- Footer */
 
 .footer-custom {
-    position: absolute;
+    /*display: block;
+    
     bottom: 0;
+    
+    height: 300px;*/
     width: 100%;
-    height: 150px;
+    margin: 0 auto;
+    position: absolute;
+    align-items: flex-start;
+    padding: 50px 0 80px;
     background-color: #343A40;
 
 }
+.home-footer-logo{
 
-.bas_page{
-padding-top: 30px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    width: 100px;
+    height: 100px;
+}
+
+.footer-col-reso{
+    margin-left: 20px;
+    margin-bottom: 20px;
+
+}
+
+.footer-col-lien a, h5 {
+
+    text-decoration: none;
+    color: white;
+
 }
 
 
 
-.bas_page a {
-text-decoration: none;
-color: white;
-}
-
-.bas_page h5 {
-color: white;
-}
-
-/* -------------------------------------------------/END  Footer */
+/* -------------/END  Footer */
 

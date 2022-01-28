@@ -34,19 +34,20 @@ class ContactController extends AbstractController
             $messagemail = "Nom: ". $mailContact->nom."</br>";
             $messagemail .= "Prénom: ". $mailContact->prenom."</br>";
             $messagemail .= "Email: ". $mailContact->email."</br>";
+            $messagemail .= "telephone: ". $mailContact->telephone."</br>";
+            $messagemail .= "societe: ". $mailContact->societe."</br>";
             $messagemail .= "Text: ".nl2br($mailContact->content)."</br>";
 
-            $email = (new Email())
+           /* $email = (new Email())
             ->from('yanncochard@hotmail.fr')
             ->to('yanncochard@hotmail.fr')
             ->subject('Nouvelle demande de contact')
             ->text('Vous avez une nouvelle demande de contact'.$messagemail)
-            ->html('<p>Vous avez une nouvelle demande de contact</p>'.$messagemail);
 
-        $mailer->send($email);
+        $mailer->send($email); */
 
-           // $mail = new Mail();
-           // $mail->send('yanncochard@hotmail.fr','STC','Nouvelle demande de contact',$messagemail);
+            $mail = new Mail();
+            $mail->send('contact@stc-immobilier.fr','STC','Nouvelle demande de contact',$messagemail);
         }
 
         return $this->render('contact/index.html.twig',[
