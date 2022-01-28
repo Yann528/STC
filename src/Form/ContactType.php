@@ -32,7 +32,25 @@ class ContactType extends AbstractType
                 'attr'=>[
                     'placeholder'=>'Merci de saisir votre adress email'
                 ]
+            
             ])
+
+            ->add('telephone',TextType::class,[
+                'label'=>'Votre téléphone',
+                'attr'=>[
+                    'placeholder'=>'Merci de saisir votre numéro de téléphone'
+                ]
+            
+            ])
+
+            ->add('societe',TextType::class,[
+                'label'=>'Votre nom société',
+                'attr'=>[
+                    'placeholder'=>'Merci de saisir le nom de votre société'
+                ]
+            
+            ])
+
             ->add('content', TextareaType::class,[
                 'label'=>'Votre message',
                 'attr'=>[

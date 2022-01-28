@@ -6,6 +6,15 @@
     <meta name="description" content="Agence immobiliere spécialisée dans l'achat et la revente de bureaux">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="google-site-verification" content="xv3MncmsMmFmTEgBhPrl-UzBPAL1mwXd7woZ7bIZjaY" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SR3K29W0M4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-SR3K29W0M4');
+    </script>
     <meta name="generator" content="Jekyll v4.1.1">
     <title>{% block title %}STC : Immobilier professionnel{% endblock %}</title>
 
@@ -122,15 +131,15 @@
         <div class="bas_page">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-2">
-                        <img src="{{ asset('assets/img/logo_stc_200x200.png')}}" class="home-logo" alt="logo STC">
+                    <div class="col-md-2 footer-col-logo">
+                        <img src="{{ asset('assets/img/logo_stc_blanc_200x200.png')}}" class="home-footer-logo" alt="logo STC">
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-2 footer-col-reso">
                         <h5 class="title-footer">Suivez-nous !</h5>
                         <a href="https://www.instagram.com/la_cuisine_de_yann/?hl=fr" target="_blank"><img src="{{ asset('assets/img/insta_blanc.png')}}" class="logo-insta" alt="logo-insta" width="40" height="40"></a>
                         <a href="https://www.facebook.com/" target="_blank"><img src="{{ asset('assets/img/Facebook_blanc.png')}}" class="logo-Facebook" alt="logo-Facebook" width="40" height="40"></a>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4 footer-col-lien">
                         <ul>
                             <li><a class="nav-footer" href="{{path('products')}}">Nos offres</a></li>
                             <li><a class="nav-footer" href="{{path('qui_sommes_nous')}}">Qui somme-nous</a></li>

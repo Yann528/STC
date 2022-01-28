@@ -22,7 +22,7 @@ class SearchType extends AbstractType
             'label'=> false,
             'required'=> false,
             'attr'=>[
-                'placeholder'=>'Votre recherche ...',
+                'placeholder'=>'Localisation',
                 
             ]
 
