@@ -46,7 +46,7 @@ class ContactController extends AbstractController
         $mailer->send($email); */
 
             $mail = new Mail();
-            $mail->send('contact@stc-immobilier.fr','STC','Nouvelle demande de contact',$messagemail);
+            $mail->send($_ENV['EMAIL_ADMIN'],'STC','Nouvelle demande de contact',$messagemail);
         }
 
         return $this->render('contact/index.html.twig',[
