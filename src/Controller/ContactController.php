@@ -6,7 +6,6 @@ use App\Classe\Mail;
 use App\Form\ContactType;
 use App\Classe\MailContact;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,7 +18,7 @@ class ContactController extends AbstractController
      */
 
 
-    public function index(Request $request, MailerInterface $mailer): Response
+    public function index(Request $request): Response
     {
         $mailContact = new MailContact();
 
