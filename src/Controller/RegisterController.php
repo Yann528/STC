@@ -5,8 +5,6 @@ use App\Classe\Mail;
 use App\Entity\User;
 use App\Form\RegisterType;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\Mailer\MailerInterface;
-use Symfony\Component\Mime\Email;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -23,7 +21,7 @@ class RegisterController extends AbstractController
     /**
      * @Route("/inscription", name="register")
      */
-    public function index(Request $request, UserPasswordEncoderInterface $encoder, MailerInterface $mailer)
+    public function index(Request $request, UserPasswordEncoderInterface $encoder)
     {
         $notification = null;
 
@@ -50,16 +48,6 @@ class RegisterController extends AbstractController
                 $content = "Bonjour ".$user->getFirstname()." " .$user->getLastname()."
                 Merci de bien vouloir patienter que STC valide votre inscription";
 
-                /*$email = (new Email())
-                    ->from('contact@stc-immobilier.fr')
-                    ->to($user->getEmail())
-                    ->subject('Bienvenue sur STC')
-                    ->text($content)
-                    ->html(nl2br($content));
-
-                $mailer->send($email);*/
-
-
                 $mail = new Mail();
                 $content = "Bonjour".$user->getFirstname()."
                 <br/>
@@ -74,6 +62,11 @@ class RegisterController extends AbstractController
                 
                 $notification = "Votre inscription s'est correctement déroulée. 
                 Vous pouvez dés a present vous connecter à votre compte.";
+
+                $messagemail="Nouveau client a validé";
+
+                $mailAdmin = new Mail();
+                $mailAdmin->send($_ENV['EMAIL_ADMIN'],'STC','Nouveau client a validé',$messagemail);
 
             }else{
 
