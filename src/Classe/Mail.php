@@ -13,8 +13,8 @@ class Mail
     private $api_key_secret;
 
     public function __construct() {
-        $this->api_key = getenv('MAILJET_KEY');
-        $this->api_key_secret = getenv('MAILJET_KEY_SECRET');
+        $this->api_key = $_ENV['MAILJET_KEY'];
+        $this->api_key_secret = $_ENV['MAILJET_KEY_SECRET'];
     }
 
     public function send($to_email, $to_name, $subject, $content)
@@ -35,7 +35,7 @@ class Mail
                             'Name' => $to_name,
                         ]
                     ],
-                    'TemplateID' => 3383440,
+                    'TemplateID' => 3534050,
                     'TemplateLanguage' => true,
                     'Subject' => $subject,
                     'Variables' => [
@@ -45,8 +45,9 @@ class Mail
                 ]
             ]
         ];
-        $response = $mj->post(Resources::$Email, ['body' => $body]);
+        $response = $mj->post(Resources::$Email, ['body' => $body]); 
         $response->success();
+        
         
     }
 
