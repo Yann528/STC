@@ -27,7 +27,7 @@ class Mail
                 [
                     'From' => [
                         'Email' => "contact@stc-immobilier.fr",
-                        'Name' => "STC"
+                        'Name' => "STC-Immobilier"
                     ],
                     'To' => [
                         [
