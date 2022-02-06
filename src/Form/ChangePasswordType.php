@@ -44,10 +44,10 @@ class ChangePasswordType extends AbstractType
                     'required' => true,
                     'first_options'=>[
                         'label'=>'Mon nouveau mot de passe',
-                        'attr'=>['placeholder'=>'Merci de saisir votre nouveau mot de passe. ']
+                        'attr'=>['placeholder'=>'Renseignez au moins 1 majuscule, 1 minuscule et 1 chiffre ']
                         ],
                     'second_options' => [
-                         'label'=> 'comfirmez votre nouveau mot de passe' ,
+                         'label'=> 'Comfirmez votre nouveau mot de passe' ,
                          'attr'=>['placeholder'=>'Merci de confirmer votre nouveau mot de passe. ']
                         ]
                          ])

@@ -94,7 +94,7 @@
     <div class="row">
         <div class="col-md-12 product-information">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 text-center">
                     {% if product.prix != 0 %}
                     <span class='product-page-price'>- Prix: {{product.prix /100 }}€</span></br>
                     {% endif %}
@@ -106,13 +106,13 @@
                     
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4 text-center">
                     <span class="product-page-dispoDate">- Etat general: {{product.etat }}</span></br>
                     <span class="product-page-dispoDate">- localisation: {{product.localisation }}</span></br>
                     <span class="product-page-surface">- Code Postal: {{product.codePostal}}</span></br>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4 text-center">
                     {% if product.montantTaxeFonciere != 0 %}
                     <span class="product-page-montantTaxeFonciere">- Taxe Fonciere: {{product.montantTaxeFonciere /100 }}€</span></br>
                     {% endif %}

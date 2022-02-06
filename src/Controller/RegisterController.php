@@ -46,27 +46,32 @@ class RegisterController extends AbstractController
                 $this->entityManager->flush();
 
                 $content = "Bonjour ".$user->getFirstname()." " .$user->getLastname()."
-                Merci de bien vouloir patienter que STC valide votre inscription";
+                Merci de bien vouloir patienter que STC-Immobilier valide votre inscription";
 
                 $mail = new Mail();
-                $content = "Bonjour".$user->getFirstname()."
+                $content = "Bonjour ".$user->getFirstname()."
                 <br/>
                 Bienvenue sur STC Conseil en immobilier d'entreprise<br><br/>
                 merci de bien vouloir patienter que nous valider votre inscription<br><br/>
-                Constituendi autem sunt qui sint in amicitia fines et quasi termini diligendi.
-                De quibus tres video sententias ferri, quarum nullam probo, unam, 
-                ut eodem modo erga amicum adfecti simus, quo erga nosmet ipsos, alteram,
-                ut nostra in amicos benevolentia illorum erga nos benevolentiae pariter
-                aequaliterque respondeat, tertiam, ut, quanti quisque se ipse facit, tanti fiat ab amicis.";
+                Vous recevrez prochainement un nouvel email de validation de votre compte.<br><br/>
+                Ainsi vous pourrez profiter de nos offres privilèges dans le menu >Nos offres.<br><br/>
+                Nous restons à votre disposition pour tout complément d'information.<br><br/>
+                STC Immobilier<br><br/>
+                Vous souhaitant une excellente journée.";
                 $mail->send($user->getEmail(),$user->getFirstname(),'Bienvenue sur STC', $content );
                 
                 $notification = "Votre inscription s'est correctement déroulée. 
-                Vous pouvez dés a present vous connecter à votre compte.";
+                Merci de bien vouloir patienter que STC-Immobilier valide votre inscription,
+                vous recevrez un email de confirmation.";
 
-                $messagemail="Nouveau client a validé";
+                $messagemail="Nouveau client.<br><br/>
+                Vous avez une nouvelle création de compte a validé.
+                merci de le faire dans les plus brefs délais.<br><br/>
+                Connectez-vous sur >Mon compte puis >back-office rubrique >User. 
+                Bonne journée ;-) ";
 
                 $mailAdmin = new Mail();
-                $mailAdmin->send($_ENV['EMAIL_ADMIN'],'STC','Nouveau client a validé',$messagemail);
+                $mailAdmin->send($_ENV['EMAIL_ADMIN'],'STC-Immobilier','Nouveau client',$messagemail);
 
             }else{
 

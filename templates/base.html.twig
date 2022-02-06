@@ -22,20 +22,9 @@
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/STC.css')}}">
     <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
+        
 
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
+      
     </style>
     <!-- Custom styles for this template -->
     <link href="{{ asset('assets/css/carousel.css') }}" rel="stylesheet">
@@ -128,17 +117,19 @@
 
 <!-- FOOTER -->
     <footer class="footer-custom">
-        <div class="bas_page">
+        
             <div class="container">
                 <div class="row">
-                    <div class="col-md-2 footer-col-logo">
+                    <div class="col-md-4 footer-col-logo text-center">
                         <img src="{{ asset('assets/img/logo_stc_blanc_200x200.png')}}" class="home-footer-logo" alt="logo STC">
                     </div>
-                    <div class="col-md-2 footer-col-reso">
-                        <h5 class="title-footer">Suivez-nous !</h5>
-                        <a href="https://www.instagram.com/la_cuisine_de_yann/?hl=fr" target="_blank"><img src="{{ asset('assets/img/insta_blanc.png')}}" class="logo-insta" alt="logo-insta" width="40" height="40"></a>
+
+                    <div class="col-md-4 footer-col-reso text-center">
+                        <h4 class="title-footer">Suivez-nous !</h4>
+                        <a href="https://www.instagram.com/stcimmobilier/" target="_blank"><img src="{{ asset('assets/img/insta_blanc.png')}}" class="logo-insta" alt="logo-insta" width="40" height="40"></a>
                         <a href="https://www.facebook.com/" target="_blank"><img src="{{ asset('assets/img/Facebook_blanc.png')}}" class="logo-Facebook" alt="logo-Facebook" width="40" height="40"></a>
                     </div>
+
                     <div class="col-md-4 footer-col-lien">
                         <ul>
                             <li><a class="nav-footer" href="{{path('products')}}">Nos offres</a></li>
@@ -148,8 +139,15 @@
                         </ul>
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="col-md-12 footer-copyright texte-center">
+                        <p>© Copyright 2022 stc-immobilier.fr | <a href="{{path('mentionslegales')}}">Mentions legales</a> | <a href="{{path('politique_confidentialite')}}">Politiques de confidentialité</a></p>
+                    </div>
+                </div>
+
             </div>
-        </div>
+        
 
     </footer>
 

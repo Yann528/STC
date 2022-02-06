@@ -48,11 +48,11 @@ class RegisterType extends AbstractType
                 'label' => 'Votre mot de passe',
                 'required' => true,
                 'first_options'=>[
-                    'label'=>'mot de passe',
-                    'attr'=>['placeholder'=>'Merci de saisir votre mot de passe. ']
+                    'label'=>'Mot de passe',
+                    'attr'=>['placeholder'=>'Renseignez au moins 1 majuscule, 1 minuscule et 1 chiffre']
                     ],
                 'second_options' => [
-                     'label'=> 'comfirmez votre mot de passe' ,
+                     'label'=> 'Comfirmez votre mot de passe' ,
                      'attr'=>['placeholder'=>'Merci de confirmer votre mot de passe. ']
                     ]
                      ])

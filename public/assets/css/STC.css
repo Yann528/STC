@@ -13,7 +13,27 @@ h1 {
       line-height: 2;
   }
 
- 
+h2 {
+margin-bottom: 30px;
+
+}
+/* ------------------------------------------------- carrousel */
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+/* ------------------------/END carrousel */
 
   
 /* ------------------------------------------------- Nav */
@@ -45,7 +65,8 @@ height: 150px;
 
 
 .nos-avis{
-background-image: url('/assets/img/fondconfiancer.jpg');
+/*background-image: url('/assets/img/fondconfiancer.jpg');*/
+background-color: gray;
 height: 350px;
 margin-top: 80px;
 margin-bottom: 80px;
@@ -54,6 +75,7 @@ background-size: cover;
 }
 
 .nos-avis h1 {
+    
      text-align: center;
     color: white;
 }
@@ -79,11 +101,20 @@ color: white;
 
 }
 
-.messageReassurance{
-    margin-bottom: 80px;
-}
+
 
 /*------------------ /END avis clients*/
+
+/* --------------------------------   Reassurance */
+
+.messageReassurance img {
+
+    margin-bottom: 20px;
+}
+
+/* ------------- /END Reassurance */
+
+
 /* ----------------------- /END Home */
 
 
@@ -161,7 +192,7 @@ font-weight:500 ;
  background-color: white;
  border-radius: 5px;
  padding: 20px;
- margin-bottom: 80px;
+
 
 }
 
@@ -209,53 +240,51 @@ text-decoration: none;
     height: 150px;
 
 }
-.contact-custom {
 
-    margin-bottom: 80px;
-}
 
-/* ------------------------------------------------- references */
-.references{
-    margin-bottom: 80px;
-}
 
-/* ------------- /END references */
 
 /* ------------------------------------------------- Footer */
 
-.footer-custom {
+  .footer-custom {
     /*display: block;
     
     bottom: 0;
-    
     height: 300px;*/
+
+
+    display: block;
     width: 100%;
-    margin: 0 auto;
+    margin-top: 80px;
     position: absolute;
     align-items: flex-start;
     padding: 50px 0 80px;
-    background-color: #343A40;
+    background-color: #76797c;
 
-}
+} 
 .home-footer-logo{
-
-    margin-left: 20px;
-    margin-bottom: 20px;
+text-align: center;
+ 
     width: 100px;
     height: 100px;
 }
 
-.footer-col-reso{
-    margin-left: 20px;
-    margin-bottom: 20px;
 
-}
 
-.footer-col-lien a, h5 {
+.footer-col-lien a, h4  {
 
     text-decoration: none;
     color: white;
 
+}
+
+.footer-copyright {
+    margin-top: 30px;
+    text-align: center;
+    color: white;
+}
+.footer-copyright a {
+    color: white;
 }
 
 
