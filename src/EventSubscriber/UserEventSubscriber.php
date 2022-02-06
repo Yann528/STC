@@ -7,8 +7,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Events;
 use Doctrine\ORM\Event\PreUpdateEventArgs;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\Mailer\MailerInterface;
-use Symfony\Component\Mime\Email;
+use App\Classe\Mail;
 
 
 class UserEventSubscriber implements EventSubscriberInterface
@@ -18,15 +17,9 @@ class UserEventSubscriber implements EventSubscriberInterface
      */
     private $entityManager;
 
-    /**
-     * @var MailerInterface;
-     */
-    private $mailer;
-
-    public function __construct(EntityManagerInterface $entityManager, MailerInterface $mailer)
+    public function __construct(EntityManagerInterface $entityManager)
     {
         $this->entityManager = $entityManager;
-        $this->mailer = $mailer;
     }
 
     public static function getSubscribedEvents()
@@ -48,18 +41,13 @@ class UserEventSubscriber implements EventSubscriberInterface
         }
 
         if ($args->hasChangedField('customerValidate') && $args->getNewValue('customerValidate') == 'true') {
+            
             // send customerValidate contact mail
             $content = "Bonjour ".$entity->getFirstname()." " .$entity->getLastname()."
                 Message customerValidate";
 
-                $email = (new Email())
-                    ->from('yanncochard@hotmail.fr')
-                    ->to($entity->getEmail())
-                    ->subject('customerValidate title')
-                    ->text($content)
-                    ->html(nl2br($content));
-
-                $this->mailer->send($email);
+            $mail = new Mail();
+            $mail->send($entity->getEmail(),$entity->getFirstname(),'Bienvenue sur STC', $content );
         }
         
     }
