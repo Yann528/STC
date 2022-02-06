@@ -73,6 +73,8 @@ class RegisterController extends AbstractController
                 $mailAdmin = new Mail();
                 $mailAdmin->send($_ENV['EMAIL_ADMIN'],'STC-Immobilier','Nouveau client',$messagemail);
 
+                //$this->redirectToRoute('account');
+
             }else{
 
                 $notification = "L'email que vous avez renseigné existe déjà.";

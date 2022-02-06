@@ -65,9 +65,7 @@ height: 150px;
 
 
 .nos-avis{
-/*background-image: url('/assets/img/fondconfiancer.jpg');*/
-background-color: gray;
-height: 350px;
+background-image: url('/assets/img/fondconfiancer.jpg');
 margin-top: 80px;
 margin-bottom: 80px;
 position: relative;
