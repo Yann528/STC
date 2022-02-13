@@ -22,7 +22,7 @@ class ResetPasswordType extends AbstractType
             'required' => true,
             'first_options'=>[
                 'label'=>'Mon nouveau mot de passe',
-                'attr'=>['placeholder'=>'Renseignez au moins 1 majuscule, 1 minuscule et 1 chiffre']
+                'attr'=>['placeholder'=>'Minimum 6 caractères, 1 majuscule, 1 minuscule et 1 chiffre.']
                 ],
             'second_options' => [
                  'label'=> 'comfirmez votre nouveau mot de passe' ,

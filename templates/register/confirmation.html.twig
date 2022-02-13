@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Confirmation- STC{% endblock %}
+
+{% block content %}
+
+  <div class="container">
+    <h1>Félicitations</h1>
+    <div class="alert alert-primary" role="alert">
+
+        <p><strong>Votre inscription s'est correctement déroulée.</strong><br><br>
+        Merci de bien vouloir patienter que <strong>STC-Immobilier valide</strong> votre inscription,
+        vous recevrez un <strong>email de confirmation.</strong></p>
+        <p> ✅ Votre compte a été créé.<br>
+          ☑️ Vous allez bientôt recevoir un email.</p>
+
+        <p>
+        <a href="{{ path("account")}}" class="btn btn-info">Accéder à mon compte</a>
+        </p>
+    </div>
+
+
+  </div>
+
+{% endblock %}

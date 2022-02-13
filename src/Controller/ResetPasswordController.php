@@ -52,8 +52,8 @@ class ResetPasswordController extends AbstractController
                     ]);
 
                     $content = "Bonjour ".$user->getFirstname()." Vous avez demandé à réinitialiser votre mot de passe sur STC ";
-                    $content .= "Merci de bien vouloir cliquer sur le lien suivant pour <a href '".$url."'> mettre à jour votre mot de passe.</a>";
-
+                    $content .= "Merci de bien vouloir cliquer sur <a href='".$url."'> mettre à jour votre mot de passe.</a><br/>";
+                    $content.= "<p>Veuillez cliquer sur le lien suivant: $url</p>";
                     $mailContact = new Mail();
                     $mailContact->send($user->getEmail(), $user->getFirstname().''. $user->getlastname(), 'Réinitialiser votre mot de passe sur STC.',$content);
 
