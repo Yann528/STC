@@ -18,19 +18,19 @@ class ContactType extends AbstractType
             ->add('prenom',TextType::class,[
                 'label'=>'Votre prénom',
                 'attr'=>[
-                    'placeholder'=>'Merci de saisir votre prenom'
+                    'placeholder'=>'Merci de saisir votre prénom.'
                 ]
             ])
             ->add('nom',TextType::class,[
                 'label'=>'Votre nom',
                 'attr'=>[
-                    'placeholder'=>'Merci de saisir votre nom'
+                    'placeholder'=>'Merci de saisir votre nom.'
                 ]
             ])
             ->add('email',EmailType::class,[
-                'label'=>'Votre email',
+                'label'=>'Votre adresse email',
                 'attr'=>[
-                    'placeholder'=>'Merci de saisir votre adress email'
+                    'placeholder'=>'Merci de saisir votre adresse email.'
                 ]
             
             ])
@@ -38,7 +38,7 @@ class ContactType extends AbstractType
             ->add('telephone',TextType::class,[
                 'label'=>'Votre téléphone',
                 'attr'=>[
-                    'placeholder'=>'Merci de saisir votre numéro de téléphone'
+                    'placeholder'=>'Merci de saisir votre numéro de téléphone.'
                 ]
             
             ])
@@ -46,7 +46,7 @@ class ContactType extends AbstractType
             ->add('societe',TextType::class,[
                 'label'=>'Votre nom société',
                 'attr'=>[
-                    'placeholder'=>'Merci de saisir le nom de votre société'
+                    'placeholder'=>'Merci de saisir le nom de votre société.'
                 ]
             
             ])

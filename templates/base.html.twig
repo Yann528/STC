@@ -7,6 +7,7 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="google-site-verification" content="xv3MncmsMmFmTEgBhPrl-UzBPAL1mwXd7woZ7bIZjaY" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script src="https://kit.fontawesome.com/3ffbf62781.js" crossorigin="anonymous"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SR3K29W0M4"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
@@ -19,6 +20,7 @@
     <title>{% block title %}STC : Immobilier professionnel{% endblock %}</title>
 
     <!-- Bootstrap core CSS -->
+    <link href="{{ asset('assets/css/fontawesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/STC.css')}}">
  
@@ -47,15 +49,17 @@
                 </li>
                 </li>
                   <li class="nav-item active">
-                    <a class="nav-link" href="{{path('contact') }}">Nous contacter |</a>
+                    <a class="nav-link" href="{{path('contact') }}">Nous contacter</a>
                 </li>
             </ul>
             
 
             <div class='navebar-item-custom' >
                 {% if app.user %}
-                <a href="{{ path('account') }}">Mon compte <small>({{app.user.firstname}}) </small> </a> | <a href="{{ path('app_logout') }}">Déconnexion</a>
+                
+                <a href="{{ path('account') }}">Mon compte <small>({{app.user.firstname}})</small> </a> | <a href="{{ path('app_logout') }}">Déconnexion</a>
                 {% else %}
+                
                 <a href="{{ path('app_login') }}">Connexion</a> | <a href="{{ path('register') }}">Inscription</a>
                 {% endif %}
             </div>
@@ -122,6 +126,8 @@
 
                     <div class="col-md-4 footer-col-reso text-center">
                         <h4 class="title-footer">Suivez-nous !</h4>
+                        <!--<i class="fa-brands fa-facebook-square"></i>-->
+                        <!--<svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">-->
                         <a href="https://www.instagram.com/stcimmobilier/" target="_blank"><img src="{{ asset('assets/img/insta_blanc.png')}}" class="logo-insta" alt="logo-insta" width="40" height="40"></a>
                         <a href="https://www.facebook.com/" target="_blank"><img src="{{ asset('assets/img/Facebook_blanc.png')}}" class="logo-Facebook" alt="logo-Facebook" width="40" height="40"></a>
                     </div>
@@ -129,7 +135,7 @@
                     <div class="col-md-4 footer-col-lien">
                         <ul>
                             <li><a class="nav-footer" href="{{path('products')}}">Nos offres</a></li>
-                            <li><a class="nav-footer" href="{{path('qui_sommes_nous')}}">Qui somme-nous</a></li>
+                            <li><a class="nav-footer" href="{{path('qui_sommes_nous')}}">Qui sommes-nous</a></li>
                             <li><a class="nav-footer" href="{{path('references')}}">Nos références</a></li>
                             <li><a class="nav-footer" href="{{path('contact')}}">Nous contacter</a></li>
                         </ul>
@@ -138,7 +144,7 @@
 
                 <div class="row">
                     <div class="col-md-12 footer-copyright texte-center">
-                        <p>© Copyright 2022 stc-immobilier.fr | <a href="{{path('mentionslegales')}}">Mentions legales</a> | <a href="{{path('politique_confidentialite')}}">Politiques de confidentialité</a></p>
+                        <p>© Copyright 2022 stc-immobilier.fr | <a href="{{path('mentionslegales')}}">Mentions légales</a> | <a href="{{path('politique_confidentialite')}}">Politiques de confidentialité</a></p>
                     </div>
                 </div>
 
