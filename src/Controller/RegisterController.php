@@ -51,29 +51,31 @@ class RegisterController extends AbstractController
                 $mail = new Mail();
                 $content = "Bonjour ".$user->getFirstname()."
                 <br/>
-                Bienvenue sur STC Conseil en immobilier d'entreprise<br><br/>
-                merci de bien vouloir patienter que nous valider votre inscription<br><br/>
-                Vous recevrez prochainement un nouvel email de validation de votre compte.<br><br/>
-                Ainsi vous pourrez profiter de nos offres privilèges dans le menu >Nos offres.<br><br/>
+                Bienvenue sur STC Conseil en immobilier d'entreprise.<br>
+                Merci de bien vouloir patienter que nous valider votre inscription.<br>
+                Vous recevrez prochainement un nouvel email de validation de votre compte.<br>
+                Ainsi vous pourrez profiter de nos offres privilèges dans le menu -> Nos offres.<br>
                 Nous restons à votre disposition pour tout complément d'information.<br><br/>
-                STC Immobilier<br><br/>
+                STC Immobilier<br>
                 Vous souhaitant une excellente journée.";
                 $mail->send($user->getEmail(),$user->getFirstname(),'Bienvenue sur STC', $content );
-                
+    
                 $notification = "Votre inscription s'est correctement déroulée. 
                 Merci de bien vouloir patienter que STC-Immobilier valide votre inscription,
                 vous recevrez un email de confirmation.";
 
+                usleep(500);
+
                 $messagemail="Nouveau client.<br><br/>
-                Vous avez une nouvelle création de compte a validé.
-                merci de le faire dans les plus brefs délais.<br><br/>
-                Connectez-vous sur >Mon compte puis >back-office rubrique >User. 
+                Vous avez une nouvelle création de compte a validé.<br>
+                Merci de le faire dans les plus brefs délais.<br><br>
+                -> Mon compte  -> Back-office  ->User  ->Customer validate.<br><br>
                 Bonne journée ;-) ";
 
                 $mailAdmin = new Mail();
                 $mailAdmin->send($_ENV['EMAIL_ADMIN'],'STC-Immobilier','Nouveau client',$messagemail);
 
-                //$this->redirectToRoute('account');
+                return $this->redirectToRoute('account');
 
             }else{
 
@@ -89,5 +91,15 @@ class RegisterController extends AbstractController
             'form'=> $form->createView(),
             'notification'=>$notification
         ]);
+    }
+
+    /**
+     * @Route("/confirmation", name="confirmation")
+     */
+    public function confirmation(Request $request)
+    {
+        return $this->render('register/confirmation.html.twig',[
+        ]);
+
     }
 }

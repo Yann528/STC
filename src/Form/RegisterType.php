@@ -49,7 +49,7 @@ class RegisterType extends AbstractType
                 'required' => true,
                 'first_options'=>[
                     'label'=>'Mot de passe',
-                    'attr'=>['placeholder'=>'Renseignez au moins 1 majuscule, 1 minuscule et 1 chiffre']
+                    'attr'=>['placeholder'=>'Minimum 6 caractères, 1 majuscule, 1 minuscule et 1 chiffre.']
                     ],
                 'second_options' => [
                      'label'=> 'Comfirmez votre mot de passe' ,
