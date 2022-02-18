@@ -257,7 +257,7 @@ text-decoration: none;
     position: absolute;
     align-items: flex-start;
     padding: 50px 0 80px;
-    background-color: #76797c;
+    background-color: #31425a;
 
 } 
 .home-footer-logo{
@@ -282,6 +282,17 @@ text-align: center;
     color: white;
 }
 .footer-copyright a {
+    color: white;
+}
+
+.fa-instagram-square{
+    
+ color: white;
+ margin-right: 10px;
+
+
+}
+.fa-facebook-square{
     color: white;
 }
 
