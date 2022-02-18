@@ -20,7 +20,8 @@
     <title>{% block title %}STC : Immobilier professionnel{% endblock %}</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="{{ asset('assets/css/fontawesome.min.css') }}" rel="stylesheet">
+    {# <!--<link href="{{ asset('assets/css/fontawesome.min.css') }}" rel="stylesheet">--> #}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/STC.css')}}">
  
@@ -56,10 +57,10 @@
 
             <div class='navebar-item-custom' >
                 {% if app.user %}
-                
+                <i class="fa-solid fa-user-check"></i>
                 <a href="{{ path('account') }}">Mon compte <small>({{app.user.firstname}})</small> </a> | <a href="{{ path('app_logout') }}">Déconnexion</a>
                 {% else %}
-                
+                <i class="fa-solid fa-user"></i>
                 <a href="{{ path('app_login') }}">Connexion</a> | <a href="{{ path('register') }}">Inscription</a>
                 {% endif %}
             </div>
@@ -126,10 +127,11 @@
 
                     <div class="col-md-4 footer-col-reso text-center">
                         <h4 class="title-footer">Suivez-nous !</h4>
-                        <!--<i class="fa-brands fa-facebook-square"></i>-->
-                        <!--<svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">-->
-                        <a href="https://www.instagram.com/stcimmobilier/" target="_blank"><img src="{{ asset('assets/img/insta_blanc.png')}}" class="logo-insta" alt="logo-insta" width="40" height="40"></a>
-                        <a href="https://www.facebook.com/" target="_blank"><img src="{{ asset('assets/img/Facebook_blanc.png')}}" class="logo-Facebook" alt="logo-Facebook" width="40" height="40"></a>
+                        
+                        
+                        
+                        <a href="https://www.instagram.com/stcimmobilier/" target="_blank"><i class="fa-brands fa-instagram-square fa-2xl"></i></a>
+                        <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-square fa-2xl"></i></a>
                     </div>
 
                     <div class="col-md-4 footer-col-lien">
