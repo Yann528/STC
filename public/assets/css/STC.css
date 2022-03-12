@@ -290,12 +290,17 @@ text-align: center;
  color: white;
  margin-right: 10px;
 
-
 }
 .fa-facebook-square{
     color: white;
+    margin-right: 10px;
 }
 
+.fa-linkedin{
+    
+    color: white;
+ 
+}
 
 
 /* -------------/END  Footer */
