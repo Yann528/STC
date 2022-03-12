@@ -4,6 +4,7 @@ namespace App\Controller;
 use App\Classe\Mail;
 use App\Entity\User;
 use App\Form\RegisterType;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -34,7 +35,9 @@ class RegisterController extends AbstractController
 
             $user = $form->getData();
 
-            $search_email = $this->entityManager->getRepository(User::class)->findOneByEmail($user->getEmail());
+            /** @var UserRepository $userRepo */
+            $userRepo = $this->entityManager->getRepository(User::class);
+            $search_email = $userRepo->findOneByEmail($user->getEmail());
             
             if(!$search_email){
 
