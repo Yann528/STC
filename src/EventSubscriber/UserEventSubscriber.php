@@ -58,8 +58,15 @@ class UserEventSubscriber implements EventSubscriber
         if ($changeArray['customerValidate'][1] === true) {
             // send customerValidate contact mail
             $mail = new Mail();
-            $content = "Bonne nouvelle votre compte STC-Immobilier est validé!!";
-            $mail->send($entity->getEmail(),$entity->getFirstname(),'Votre compte STC-immobilier', $content );
+            $content = "Bonjour ".$entity->getFirstname()."
+                <br/><br/>
+                <strong>🎉🎉 Félicitation !</strong><br/><br/>
+                Votre copte STC-Immobilier vient d'être validé.✅<br/>
+                Vous pouvez dès à présent profiter de nos offres privilèges.<br/>
+                <a href='https://www.stc-immobilier.fr/connexion'> Accéder à mon compte</a><br/><br/>
+                STC-Immobilier<br>
+                Vous souhaitant une excellente journée.";
+            $mail->send($entity->getEmail(),$entity->getFirstname(),'Votre compte STC-immobilier est validé', $content );
         }
     }
 
