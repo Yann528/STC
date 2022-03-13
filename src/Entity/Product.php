@@ -60,16 +60,16 @@ class Product
 
 
     /**
-     * @var string
+     * @var string|null
      * 
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $plans;
 
     /**
-     * @var string
+     * @var string|null
      * 
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true )
      */
     private $dataroom;
 
@@ -287,7 +287,7 @@ class Product
         return $this->plans;
     }
 
-    public function setPlans(string $plans): self
+    public function setPlans(?string $plans): self
     {
         $this->plans = $plans;
 
@@ -299,7 +299,7 @@ class Product
         return $this->dataroom;
     }
 
-    public function setDataroom(string $dataroom): self
+    public function setDataroom(?string $dataroom): self
     {
         $this->dataroom = $dataroom;
 
