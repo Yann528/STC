@@ -25,13 +25,13 @@
                             {% endif %}
                             <h6>{{product.name}}</h6>
                             {% if product.prix != 0 %} 
-                            <span class="product-prix">Prix : {{product.prix /100 }}€</span></br>
+                            <span class="product-prix">Prix : {{(product.prix /100)|number_format(0, ',', ' ') }}€</span></br>
                             {% endif %}
                             {% if product.loyer != 0 %}
-                            <span class="product-prix"> loyer : {{product.loyer /100 }}€</span></br>
+                            <span class="product-prix"> loyer : {{(product.loyer /100)|number_format(0, ',', ' ') }}€</span></br>
                             {% endif %}
-                            <span class="product-surface">Surface : {{product.surface}}m2</span></br>
-                            <span class="product-dispoDate">Dispo : {{product.dispoDate }}</span></br>
+                            <span class="product-surface">Surface : {{product.surface|number_format(2, ',', ' ') }}m2</span></br>
+                            <span class="product-dispoDate">Dispo : {{product.dispoDate}} </span></br>
                             
                             <hr>
                         </div>
