@@ -46,13 +46,13 @@
             
             <div class="product-page-item">
                 {% if product.prix != 0 %} 
-                <span class='product-page-price'>Prix : {{product.prix /100 }}€</span></br>
+                <span class='product-page-price'>Prix : {{(product.prix /100)|number_format(0, ',', ' ') }}€</span></br>
                 {% endif %}
                 {% if product.loyer != 0 %} 
-                <span class="product-page-prix">loyer : {{product.loyer /100 }}€</span></br>
+                <span class="product-page-prix">loyer : {{(product.loyer /100)|number_format(0, ',', ' ') }}€</span></br>
                 {% endif %}
 
-                <span class="product-page-surface">Surface : {{product.surface}}m2  | </span>
+                <span class="product-page-surface">Surface : {{product.surface|number_format(2, ',', ' ') }}m2  | </span>
                 <span class="product-page-dispoDate">Dispo : {{product.dispoDate }}</span>
                 <p>{{product.subtitle}}</p>
                 {% if product.plans != '' %} 
