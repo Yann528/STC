@@ -1,36 +1,37 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Qui Sommes Nous!{% endblock %}
+{% block title %}À propos de STC{% endblock %}
 
 {% block content %}
-    <div class="container">
-
-        <div class="row featurette">
-            <div class="col-md-7 order-md-2">
-                <h2>Qui Sommes Nous !</h2>
-                <section>
-                    <p>STC est une société spécialisée dans le conseil en immobilier d’entreprise en
-                    Île de France. Fort d’une expérience professionnelle de plus de  10 ans dans 
-                    la commercialisation locaux d’activités, entrepôts et bureaux, nous vous 
-                    proposons des solutions adaptées et personnalisées que vous soyez propriétaires,
-                    utilisateurs ou investisseurs.</p>
-
-                    <p>Acteur local implanté en plein cœur de la zone d’activité de Taverny au bord des axes autoroutiers A15 et A115,
-                    nous vous apportons notre connaissance du secteur et du marché de l'immobilier d'entreprise. </p>
-
-                    <p>Notre implantation stratégique au cœur du marché, notre expertise en tant que professionnelle dans le secteur et
-                    notre proximité avec le client constituent nos forces. </p>
-
-                    <p>NOS ATOUTS: réactivité, proximité, créativité, connaissance du marché. </p>
-                 </section>
-            </div>
-
-            <div class="col-md-5 order-md-1">
-                <img src="{{asset('assets/img/qui_500x500.jpg')}}" class='img-fluid' alt="nous sommes là pour vous tout au long du projet">
-            </div>
-            
+<div class="container">
+    <div class="row featurette">
+        <div class="col-md-7 order-md-2">
+            <h1>À propos de STC</h1>
+            <section>
+                <p>Après une <strong>expérience de plus de 10 ans dans l’un des plus gros cabinets en immobilier d’entreprise</strong>, Guillaume Starck fonde la société STC spécialisée dans la vente et la location de locaux d’activités.</p>
+                <p>Le siège social est installé au cœur de la zone d’activité de <strong>Taverny dans le Val-d’Oise</strong>. Cet emplacement stratégique situé à proximité des axes autoroutiers A15 et A115 permet à STC d’être active dans l’ensemble du département 95.</p>
+                <h2>Pourquoi choisir STC ?</h2>
+                <h3>Pour ceux qui recherchent un local ou un entrepôt pour leur activité</h3>
+                <p>Notre mission est de trouver les bureaux, les entrepôts et les locaux d’activités les plus adaptés pour votre société en privilégiant les axes suivants :</p>
+                <ul>
+                <li>Secteur</li>
+                <li>Accessibilité autoroutière et transports en commun</li>
+                <li>Outil de travail adapté à vos besoins</li>
+                </ul>
+                <p>Naturellement, STC s’évertue à respecter <strong>les conditions budgétaires et techniques</strong> de votre projet.</p>
+                <p>Grâce à notre <strong>professionnalisme</strong>, notre <strong>expertise du marché</strong> et notre <strong>implantation locale</strong>, nous sommes <strong>réactifs</strong> pour trouver rapidement le bien qui répond à vos exigences.</p>
+                <h2>Pour ceux qui désirent vendre ou louer leurs locaux</h2>
+                <p>Profitez de notre expertise en <strong>estimation immobilière</strong> et vendez votre bien au <strong>meilleur prix</strong>. STC vous accompagne pour rendre votre local <strong>visible</strong> auprès des sociétés à la recherche de bureaux ou d’un entrepôt pour leur activité dans le Val-d’Oise.</p>
+                <p>STC vous aide à <strong>valoriser votre local</strong> et vous accompagne dans <strong>les discussions et les négociations avec les prospects</strong>.</p>
+                </section>
         </div>
+
+        <div class="col-md-5 order-md-1">
+            <img src="{{asset('assets/img/qui_500x500.jpg')}}" class='img-fluid' alt="STC est là pour vous tout au long du projet">
+        </div>
+            
     </div>
+</div>
     
 {% endblock %}
  
